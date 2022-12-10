@@ -47,8 +47,10 @@ export class AddstudentsComponent implements OnInit {
   
   // pass the dialogue form values to parent where this popup is called
   save() {
-    this.dialogRef.close(this.studentsdata);
-    this.dialogRef.close(this.learnerForm.value);
+    this.dialogRef.close(this.studentsdata.batch);
+    this.dialogRef.close(this.studentsdata.contact_address);
+    this.dialogRef.close(this.studentsdata.student_name);
+  
   }
 
   //close dialogue form
