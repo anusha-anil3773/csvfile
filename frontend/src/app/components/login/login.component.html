@@ -2,18 +2,31 @@
 
     <div class="login text-center">
         <main class="form-signin w-100 m-auto">
-            <form>
+            <form #userlogin="ngForm"(ngSubmit)="userverify()">
               <!-- <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
               <H1>Learner Tracker</H1>
               <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
           
               <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Email address</label>
+              <input type="email"class="form-control"[(ngModel)]="userform.email"name="email"#email="ngModel"[class.is-invalid]="email.invalid && email.touched"
+                id="exampleInputEmail1" aria-describedby="emailHelp"required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
+                <small
+                class="text-danger"
+                [class.d-none]="email.valid || email.touched"
+                style="color: black; font-size: small,"
+              >
+                Enter a valid email
+                </small>
               </div>
               <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Password</label>
+                <input type="password"  class="form-control"[(ngModel)]="userform.password" name="password"
+                #password="ngModel"[class.is-invalid]="password.invalid && password.touched"required minlength="8" />
+                <small
+                      class="text-danger"
+                      [class.d-none]="password.valid || password.touched"
+                      style="color: black; font-size: small"
+                      >Enter correct password</small
+                    >
               </div>
           
               <div class="checkbox mb-3">
@@ -21,7 +34,7 @@
                   <input type="checkbox" value="remember-me"> Remember me
                 </label>
               </div>
-              <button class="w-100 btn btn-lg btn-primary" type="submit" routerLink="/studentslist">Sign in</button>
+              <button class="w-100 btn btn-lg btn-primary" type="submit"[disabled]="userlogin.form.invalid" routerLink="/studentslist">Sign in</button>
               <p class="mt-5 mb-3 text-muted">&copy; 2022 Group 5 FSD July</p>
             </form>
           </main>

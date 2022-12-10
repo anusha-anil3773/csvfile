@@ -18,6 +18,8 @@ import { BatchesComponent } from './components/batches/batches.component';
 import { ProgramsComponent } from './components/programs/programs.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CsvfileComponent } from './csvfile/csvfile.component';
+import { AdminComponent } from './admin/admin.component';
+import { StaffComponent } from './staff/staff.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { CsvfileComponent } from './csvfile/csvfile.component';
     CoursesComponent,
     BatchesComponent,
     ProgramsComponent,
-    CsvfileComponent
+    CsvfileComponent,
+    AdminComponent,
+    StaffComponent
   ],
   imports: [
     BrowserModule,
